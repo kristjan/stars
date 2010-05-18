@@ -6,5 +6,6 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
   config.gem 'authlogic'
   config.gem 'facebooker'
+  config.gem 'hoptoad_notifier'
 end
 
