@@ -1,0 +1,35 @@
+<% if @stars_by_user.any? %>
+  <h1 style="font-weight: normal; font-size: 14px;">
+    <strong><%= pluralize(@stars_by_user.size, 'person') %></strong> earned a total of
+    <strong><%= pluralize(@stars_by_user.map(&:last).flatten.size, 'star') %></strong> this week!
+  </h1>
+  <ol style="margin-left: 10px;">
+    <% @stars_by_user.each do |user, stars| %>
+      <li style="margin-left: 0px; margin-bottom: 20px;">
+        <h2 style="font-size: 12px;">
+          <%= user.name %> earned <%= pluralize(stars.size, 'star') %>!
+        </h2>
+        <span style="color: #666; font-size: 10px;">One of these was:</span>
+        <p style="margin: 0px;
+                  padding: 10px;
+                  background-color: #FEFEEE;
+                  border: 1px solid #DD3;">
+          <%- star = stars.rand -%>
+          <%= star.reason %><br />
+          &mdash; <%= star.from.name %>
+        </p>
+      </li>
+    <% end %>
+  </ol>
+  <p>Good work, team!</p>
+<% else %>
+  <p>
+    I can't see! It's so dark in here because you guys didn't give out a single star this past week.
+  </p>
+  <p>
+    Stop slacking and go delight your peers!
+  </p>
+<% end %>
+<p>
+  <%= link_to nil, root_url %>
+</p>

@@ -1,0 +1,22 @@
+<h1>Listing stars</h1>
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Reason</th>
+  </tr>
+
+<% @stars.each do |star| %>
+  <tr>
+    <td><%= linked_photo(star.from) %></td>
+    <td><%= linked_photo(star.to) %></td>
+    <td><%=h star.reason %></td>
+    <td><%= link_to 'Show', star %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New star', new_star_path %>

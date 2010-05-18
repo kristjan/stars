@@ -1,0 +1,24 @@
+<body style="text-align: center;">
+  <div id="content"
+       style="background-color: #000;
+              color: #CCC;
+              margin: 20px auto 0px;
+              padding: 10px 10px 20px;
+              width: 600px;">
+    <h1>
+      <%= @star.from.name %> gave you a star!
+    </h1>
+    <p style="border: 3px dashed #EE0;
+              background-color: #333;
+              color: #EFEFEF;
+              font-size: 14px;
+              margin: 20px auto;
+              padding: 20px;
+              width: 400px;">
+      <%= @star.reason %>
+    </p>
+  </div>
+  <p style="margin: 10px 0px;">
+    <%= link_to "View your star", star_url(@star) %>
+  </p>
+</body>

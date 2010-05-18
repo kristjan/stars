@@ -1,0 +1,40 @@
+form {
+  padding: 20px;
+}
+
+form ul {
+  list-style: none;
+  width: 600px;
+}
+
+form textarea {
+  color: #333;
+  font-size: 1.25em;
+  height: 100px;
+  width: 400px;
+}
+
+form ul li {
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 80px;
+}
+
+form ul li:hover {
+  border: 3px solid #CCC;
+  padding: 7px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+form ul li img {
+  display: block;
+  margin: 0px auto;
+}
+
+form ul li input {
+  display: block;
+  margin: 5px auto 0px;
+}

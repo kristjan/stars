@@ -1,0 +1,1 @@
+Mailer.deliver_report

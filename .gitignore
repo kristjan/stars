@@ -1,0 +1,10 @@
+log/*
+*.log
+tmp/*
+*.swp
+*~
+.DS_Store
+config/database.yml
+config/facebooker.yml
+config/initializers/mail.rb
+db/schema.rb

@@ -1,0 +1,35 @@
+<% stylesheet 'users/badge' %>
+<% star = user.most_recent_star unless local_assigns['star'] %>
+
+<div class="badge">
+  <div class="info">
+    <div class="user_info clearfix">
+      <div class="user_name">
+        <%= name(user) %>
+      </div>
+      <div class="user_photo">
+        <%= photo(user) %>
+      </div>
+    </div>
+    <div class="star_count">
+      <%= pluralize(user.stars.count, 'star') %>
+    </div>
+  </div>
+  <hr>
+  <% if star %>
+    <div class="star_reason">
+      <h3>Latest Star:</h3>
+      <p class="reason">
+        "<%= link_to h(truncate(star.reason, 200)),
+                     star %>"
+      </p>
+      <p class="signature">
+        &ndash; <%= name(star.from) %>,
+        <%= friendly_time(star.created_at) %>
+      </p>
+    </div>
+  <% end %>
+  <div class="new_star">
+    <%= link_to "Give #{name(user)} a star", new_star_url(:to => user.id) %>
+  </div>
+</div>

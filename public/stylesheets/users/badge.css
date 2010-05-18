@@ -1,0 +1,75 @@
+div.badge {
+  background-color: #222;
+  border: 0px solid;
+  height: 300px;
+  margin: 10px;
+  padding: 20px;
+  position: relative;
+  width: 300px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+div.badge div.user_info {
+  height: 50px;
+}
+
+div.badge div.user_name {
+  float: right;
+  font-size: 2em;
+  margin: 5px 0px;
+  text-align: center;
+  width: 200px;
+}
+
+div.badge div.user_photo {
+  float: left;
+  text-align: center;
+  width: 100px;
+}
+
+div.badge div.user_photo img {
+  border: 2px solid;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+div.badge div.star_count {
+  color: #991;
+  font-size: 2em;
+  margin: 20px 0px;
+  text-align: center;
+}
+
+div.badge hr {
+  background-color: #2A2A2A;
+  border: none;
+  color: #2A2A2A;
+  height: 2px;
+}
+
+div.badge div.star_reason h3 {
+  color: #666;
+  font-size: .75em;
+  margin: 0px;
+}
+
+div.badge div.star_reason p {
+  margin: 5px 10px;
+}
+
+div.badge div.star_reason p.reason {
+  font-size: .9em;
+  overflow: hidden;
+}
+
+div.badge div.star_reason p.signature {
+  font-size: .75em;
+  text-align: right;
+}
+
+div.badge div.new_star {
+  bottom: 10px;
+  position: absolute;
+  right: 20px;
+}

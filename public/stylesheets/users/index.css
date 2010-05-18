@@ -1,0 +1,23 @@
+#recent_star {
+  border: 8px solid #991;
+  margin: 10px auto 50px;
+  width: 360px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+}
+
+#no_stars {
+  font-size: 1.5em;
+  margin: 100px auto;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 10px auto;
+  width: 1120px;
+}
+
+li {
+  float: left;
+}
