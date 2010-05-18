@@ -8,4 +8,5 @@ config/database.yml
 config/facebooker.yml
 config/initializers/mail.rb
 config/initializers/hoptoad.rb
+config/initializers/session_store.rb
 db/schema.rb
