@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :stars, :foreign_key => :to_id
 
+  named_scope :active, :conditions => {:active => true}
+
   def self.by_recent_stars
     User.all.sort_by do |user|
       star = user.most_recent_star
@@ -15,6 +17,6 @@ class User < ActiveRecord::Base
   end
 
   def others
-    User.all(:conditions => ["`users`.`id` != ?", self.id])
+    User.active.all(:conditions => ["`users`.`id` != ?", self.id])
   end
 end
