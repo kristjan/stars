@@ -1,3 +1,5 @@
+ActionMailer::Base.default_content_type = 'text/html'
+
 class Mailer < ActionMailer::Base
   def star(star)
     subject "You got a star!"
