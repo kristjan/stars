@@ -1,0 +1,21 @@
+<% form_for @user do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :facebook_uid %>
+    <%= f.text_field :facebook_uid %>
+  </p>
+  <p>
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
