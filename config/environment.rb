@@ -8,6 +8,6 @@ Rails::Initializer.run do |config|
   config.gem 'facebooker'
   config.gem 'hoptoad_notifier'
 
-  config.action_mailer.default_url_options ||= {:host => 'stars.kripet.us'}
+  config.action_mailer.default_url_options ||= {:host => 'localhost:3000'}
 end
 
