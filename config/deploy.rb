@@ -1,5 +1,6 @@
 set :application, "stars"
-set :repository,  "git@github.com:causes/#{application}.git"
+set :git_user, "kristjan"
+set :repository,  "git://github.com/#{git_user}/#{application}.git"
 set :user, :deploy
 
 set :scm, :git
