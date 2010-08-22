@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def linked_name(user, opts={})
-    link_to name(user, opts), user_url(user)
+    link_to name(user, opts), user_path(user)
   end
 
   DEFAULT_PHOTO_OPTIONS = {:linked => false,
@@ -29,7 +29,7 @@ module ApplicationHelper
   end
 
   def linked_photo(user, opts={})
-    link_to photo(user, opts), user_url(user)
+    link_to photo(user, opts), user_path(user)
   end
 
   def stylesheet(path)

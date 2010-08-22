@@ -1,22 +1,20 @@
-<h1>Listing stars</h1>
+<% stylesheet 'users/index' %>
 
-<table>
-  <tr>
-    <th>From</th>
-    <th>To</th>
-    <th>Reason</th>
-  </tr>
+<% if @featured_user %>
+  <div id="recent_star">
+    <%= render :partial => 'users/badge', :locals => {:user => @featured_user} %>
+  </div>
 
-<% @stars.each do |star| %>
-  <tr>
-    <td><%= linked_photo(star.from) %></td>
-    <td><%= linked_photo(star.to) %></td>
-    <td><%=h star.reason %></td>
-    <td><%= link_to 'Show', star %></td>
-  </tr>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= render :partial => 'users/badge', :locals => {:user => user} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <div id="no_stars">
+    No one has any stars :(<br/>
+    <%= link_to "Give someone a star", new_star_path %>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New star', new_star_path %>

@@ -1,6 +1,10 @@
 class StarsController < ApplicationController
   def index
-    @stars = Star.recent(10)
+    @users = User.by_recent_stars
+    if @users.first.stars.any?
+      @featured_user = @users.first
+      @users = @users[1..-1]
+    end
   end
 
   # GET /stars/1
@@ -37,7 +41,7 @@ class StarsController < ApplicationController
 
     respond_to do |format|
       if @star.save
-        format.html { redirect_to root_url }
+        format.html { redirect_to root_path }
         format.xml  { render :xml => @star, :status => :created, :location => @star }
       else
         format.html { render :action => "new" }
@@ -69,7 +73,7 @@ class StarsController < ApplicationController
     @star.destroy
 
     respond_to do |format|
-      format.html { redirect_to(stars_url) }
+      format.html { redirect_to(stars_path) }
       format.xml  { head :ok }
     end
   end

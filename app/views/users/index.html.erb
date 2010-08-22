@@ -1,20 +1,15 @@
-<% stylesheet 'users/index' %>
-
-<% if @featured_user %>
-  <div id="recent_star">
-    <%= render :partial => 'users/badge', :locals => {:user => @featured_user} %>
-  </div>
-
-  <ul>
-    <% @users.each do |user| %>
-      <li>
-        <%= render :partial => 'users/badge', :locals => {:user => user} %>
-      </li>
+<table>
+  <tr>
+    <% %w[Name Email Active? Actions].each do |column| %>
+      <th><%= column %></th>
     <% end %>
-  </ul>
-<% else %>
-  <div id="no_stars">
-    No one has any stars :(<br/>
-    <%= link_to "Give someone a star", new_star_path %>
-  </div>
-<% end %>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= mail_to nil, user.email %></td>
+      <td><%= user.active? %></td>
+      <td><%= link_to "Edit", edit_user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>

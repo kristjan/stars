@@ -7,5 +7,7 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic'
   config.gem 'facebooker'
   config.gem 'hoptoad_notifier'
+
+  config.action_mailer.default_url_options ||= {:host => 'stars.kripet.us'}
 end
 

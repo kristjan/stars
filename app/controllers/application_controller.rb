@@ -21,12 +21,12 @@ private
   end
 
   def require_logout
-    redirect_to root_url if (UserSession.find.user rescue false)
+    redirect_to root_path if (UserSession.find.user rescue false)
   end
 
   def require_login
     cookies[:redirect] = request.path
-    redirect_to login_url unless current_user
+    redirect_to login_path unless current_user
   end
 
   def add_stylesheets
