@@ -1,5 +1,6 @@
 set :application, "stars"
-set :repository,  "git@github.com:kristjan/#{application}.git"
+set :repository,  "git@github.com:causes/#{application}.git"
+set :user, :deploy
 
 set :scm, :git
 set :deploy_to, "/var/www/#{application}"
