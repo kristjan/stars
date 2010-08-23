@@ -5,9 +5,7 @@ Stars.Scene = (function($) {
     $("#stars, #logo").scrollingParallax({
       bgHeight: '100%',
       bgWidth: '100%',
-      enableHorizontal: true,
-      staticSpeed: 0.3,
-      staticSpeedX: 0.1
+      staticSpeed: 0.1
     });
     setTimeout(function() {
       $("#flash").hide('slide', {direction: 'left'})
