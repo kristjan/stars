@@ -107,7 +107,53 @@ h2 {
 }
 
 .superstars .stars li {
+  cursor: pointer;
   display: inline-block;
   margin: 0px;
   padding: 0px;
+  position: relative;
+}
+
+.superstars .stars li .tooltip {
+  bottom: 1em;
+  cursor: default;
+  display: none;
+  left: -20px;
+  position: absolute;
+  width: 200px;
+}
+
+.superstars .stars li:hover .tooltip,
+.superstars .stars li .tooltip:hover {
+  display: block;
+}
+
+.superstars .stars li .tooltip .details {
+  background-color: #000;
+  border: 2px solid #FFF;
+  padding: 10px;
+}
+
+.superstars .stars li .tooltip .details .signature {
+  text-align: right;
+}
+
+.superstars .stars li .tooltip .details .FB_profile_pic {
+  display: inline-block;
+  height: 30px;
+  margin: 0px 0px 0px 2px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.superstars .stars li .tooltip .tail {
+  background-color: #000;
+  border: 2px solid #FFF;
+  border-top-color: #000;
+  border-radius: 0px 0px 0px 50px;
+  -moz-border-radius: 0px 0px 50px;
+  -webkit-border-radius: 0px 0px 50px;
+  margin: -2px 0px 0px 25px;
+  height: .5em;
+  width: .5em;
 }

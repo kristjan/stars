@@ -1,5 +1,15 @@
 <%- star = superstar_detail -%>
 <li>
+  <div class="tooltip">
+    <div class="details round">
+      <%= star.reason %><br />
+      <div class="signature">
+        <span class="handwritten"><%= star.from.name %></span>
+        <%= photo(star.from, :size => :thumb) %>
+      </div>
+    </div>
+    <div class="tail"></div>
+  </div>
   &#9733;
 </li>
 
