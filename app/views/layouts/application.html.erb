@@ -13,7 +13,7 @@
     <%= javascript_include_tag 'jquery.scrolling-parallax' %>
     <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
   </head>
-  <body>
+  <body class="clearfix">
     <%= fb_connect_javascript_tag %>
     <%= init_fb_connect "XFBML", :js => :jquery %>
     <div id="new_star"><%= create_a_star_button %></div>
