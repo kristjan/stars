@@ -1,20 +1,19 @@
 <% stylesheet 'users/index' %>
 
-<% if @featured_user %>
-  <div id="recent_star">
-    <%= render :partial => 'users/badge', :locals => {:user => @featured_user} %>
+<% if @stars.any? %>
+  <div id="featured_star">
+    <%= @stars.first.reason %>
   </div>
-
   <ul>
-    <% @users.each do |user| %>
+    <% @stars[1..-1].each do |star| %>
       <li>
-        <%= render :partial => 'users/badge', :locals => {:user => user} %>
+        <%= star.reason %>
       </li>
     <% end %>
   </ul>
 <% else %>
   <div id="no_stars">
     No one has any stars :(<br/>
-    <%= link_to "Give someone a star", new_star_path %>
+    <%= link_to "Be the Big Bang!", new_star_path %>
   </div>
 <% end %>
