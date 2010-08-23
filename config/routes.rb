@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'user_sessions', :action => 'destroy'
 
   map.resources :stars do |stars|
-    stars.resources :seconds
+    stars.resources :seconds, :collection => {:create => :get}
   end
   map.resources :user_sessions
   map.resources :users

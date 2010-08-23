@@ -3,15 +3,25 @@ ActionMailer::Base.default_content_type = 'text/html'
 class Mailer < ActionMailer::Base
   def star(star)
     subject "You got a star!"
-    recipients star.to.email
+    recipients EVERYONE
     from 'Stars'
     body :star => star
   end
 
   def report
-    subject "State of the Causemos - #{Date.today.strftime('%B %d, %Y')}"
+    this_monday = Date.today.beginning_of_week
+    last_monday = this_monday - 1.week
+    stars = Star.during(last_monday..this_monday)
+    num_stars = stars.size
+    num_tos = stars.map(&:to_id).uniq.size
+    num_froms = stars.map(&:from_id).uniq.size
+
+    subject "Superstars - #{this_monday.strftime('%B %d, %Y')}"
     recipients EVERYONE
     from 'The King of All Causemos'
-    body :stars_by_user => Star.past_week_by_user
+
+    body :superstars => User.superstars_for(last_monday),
+         :num_stars => num_stars, :num_tos => num_tos,
+         :num_froms => num_froms
   end
 end

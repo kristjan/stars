@@ -1,23 +1,19 @@
-<% if @stars_by_user.any? %>
-  <h1 style="font-weight: normal; font-size: 14px;">
-    <strong><%= pluralize(@stars_by_user.size, 'person') %></strong> earned a total of
-    <strong><%= pluralize(@stars_by_user.map(&:last).flatten.size, 'star') %></strong> this week!
-  </h1>
+<% if @num_stars > 0 %>
+  <h2 style="font-weight: normal; font-size: 14px;">
+    <strong><%= pluralize(@num_froms, 'person') %></strong> gave
+    <strong><%= pluralize(@num_stars, 'star') %></strong> to
+    <strong><%= pluralize(@num_tos, 'dogooder') %></strong>
+    last week!
+  </h2>
+  <h1>But the real superstars are...</h1>
   <ol style="margin-left: 10px;">
-    <% @stars_by_user.each do |user, stars| %>
+    <% @superstars.each do |superstar| %>
       <li style="margin-left: 0px; margin-bottom: 20px;">
         <h2 style="font-size: 12px;">
-          <%= user.name %> earned <%= pluralize(stars.size, 'star') %>!
+          <%= superstar.user.name %>
+          earned <%= pluralize(superstar.count, 'star') %>
+          and <%= pluralize(superstar.seconds, 'second') %>!
         </h2>
-        <span style="color: #666; font-size: 10px;">One of these was:</span>
-        <p style="margin: 0px;
-                  padding: 10px;
-                  background-color: #FEFEEE;
-                  border: 1px solid #DD3;">
-          <%- star = stars.rand -%>
-          <%= star.reason %><br />
-          &mdash; <%= star.from.name %>
-        </p>
       </li>
     <% end %>
   </ol>
@@ -31,5 +27,10 @@
   </p>
 <% end %>
 <p>
-  <%= link_to nil, root_path %>
+<%= link_to "&#9733; See Stars &#9733;", root_url,
+              :style => "
+                background-color: #EE4;
+                color: #3B5998;
+                font-size: 16px;
+                padding: 5px 10px;" %>
 </p>

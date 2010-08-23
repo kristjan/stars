@@ -3,8 +3,10 @@ class SecondsController < ApplicationController
 
   def create
     @star = Star.find(params[:star_id])
-    current_user.second(@star)
-    flash[:notice] = "You seconded #{@star.to.name} for '#{truncate(@star.reason, 60, '...')}'"
+    if current_user.can_second?(@star)
+      current_user.second(@star)
+      flash[:notice] = "You seconded #{@star.to.name} for '#{truncate(@star.reason, 60, '...')}'"
+    end
   rescue ActiveRecord::RecordNotFound
     flash[:notice] = "That star doesn't exist."
   ensure
