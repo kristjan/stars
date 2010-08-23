@@ -1,5 +1,119 @@
+h2 {
+  font-size: 18px;
+}
+
+#featured_star {
+  border: 1px solid rgba(255,255,255,.5);
+  border-width: 1px 0px;
+  margin: 40px 0px 10px;
+  padding: 30px 50px;
+  width: 100%;
+}
+
+#featured_star .photos {
+  margin-right: 20px;
+}
+
+#featured_star .photos .starred {
+  font-size: 2em;
+}
+
+#featured_star .reason {
+  font-size: 30px;
+  width: 400px;
+}
+
+#recent_stars {
+  float: left;
+  margin: 20px 30px;
+  width: 550px;
+}
+
+#recent_stars li {
+  margin: 10px 0px;
+}
+
 #no_stars {
   margin: 300px auto;
   text-align: center;
   width: 400px;
+}
+
+#superstars {
+  float: left;
+  margin: 20px 20px;
+  width: 300px;
+}
+
+#superstars h2 {
+  margin-left: 10px;
+}
+
+.star .photos .star {
+  color: #EE4;
+}
+
+.star .photos {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.star .photo {
+  display: inline-block;
+  margin: 0px 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.star .photos .starred {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.star .photo .FB_profile_pic {
+  margin-bottom: 10px;
+}
+
+.star .info {
+  display: inline-block;
+}
+
+.star .reason {
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 250px;
+}
+
+.superstars {
+  margin: 10px 10px 20px;
+}
+
+.superstars li {
+  margin: 10px 0px;
+}
+
+.superstars .count {
+  float: right;
+}
+
+.superstars .info {
+  display: inline-block;
+  width: 180px;
+}
+
+.superstars .FB_profile_pic {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.superstars .stars {
+  margin: 5px 0px;
+  padding: 5px 3px;
+}
+
+.superstars .stars li {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
 }

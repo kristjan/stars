@@ -2,9 +2,12 @@ if (typeof (Stars) === 'undefined') {Stars = {}};
 
 Stars.Scene = (function($) {
   var init = function() {
-    $('body').css('min-height', $(window).height());
-    $("#stars").scrollingParallax({
-      staticSpeed: 0.1
+    $("#stars, #logo").scrollingParallax({
+      bgHeight: '100%',
+      bgWidth: '100%',
+      enableHorizontal: true,
+      staticSpeed: 0.3,
+      staticSpeedX: 0.1
     });
   };
 

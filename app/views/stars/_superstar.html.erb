@@ -1,0 +1,11 @@
+<li>
+  <%= photo(superstar.user, :size => :thumb) %>
+  <div class="info">
+    <div class="count"><%= superstar.count %></div>
+    <%= superstar.user.name %>
+    <ul class="stars sheer">
+      <%= render :partial => "superstar_detail",
+                 :collection => superstar.stars %>
+    </ul>
+  </div>
+</li>

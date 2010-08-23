@@ -18,8 +18,12 @@ body {
       rgb(0,56,99) 100%
   );
   color: #FFF;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   min-height: 750px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-shadow: #000 1px 1px 1px;
+  width: 960px;
 }
 
 a {
@@ -31,11 +35,16 @@ img {
   border: none;
 }
 
+ul, ol {
+  list-style: none;
+}
+
 #hills {
   background-image: url('/images/hills.png');
   bottom: 0px;
   display: block;
   height: 79px;
+  left: 0px;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -52,6 +61,12 @@ img {
   z-index: -1000;
 }
 
+#new_star {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
+
 #stars {
   background-image: url('/images/stars-background.png');
   background-position: 0px -40px;
@@ -60,20 +75,8 @@ img {
   left: 0px;
   position: fixed;
   top: 0px;
-  width: 1482px;
+  width: 100%;
   z-index: -1000;
-}
-
-.round {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-
-.sheer {
-  background-color: rgba(255,255,255,.3);
-  border: 1px solid rgba(255,255,255,.5);
-  padding: 10px;
 }
 
 .button {
@@ -93,6 +96,7 @@ img {
   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
   margin: 10px 5px;
   padding: 5px 10px;
+  text-shadow: none;
   vertical-align: middle;
 }
 
@@ -106,6 +110,33 @@ img {
   background: #CCCC83;
   background: -webkit-gradient(linear, left top, left bottom, from(#CCCC83), to(#CC2));
   background: -moz-linear-gradient(top, #CCCC83, #CC2);
+}
+
+.handwritten {
+  font-family: "Reenie Beanie", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: .5em;
+}
+
+.round {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.sheer {
+  background-color: rgba(255,255,255,.3);
+  padding: 10px;
+}
+
+.small {
+  font-size: .8em;
+}
+
+.time {
+  font-size: 10px;
+  opacity: .9;
+  text-shadow: none;
 }
 
 .clearfix:after {

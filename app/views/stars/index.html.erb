@@ -1,16 +1,20 @@
 <% stylesheet 'stars' %>
 
 <% if @stars.any? %>
-  <div id="featured_star">
-    <%= @stars.first.reason %>
-  </div>
-  <ul>
-    <% @stars[1..-1].each do |star| %>
-      <li>
-        <%= star.reason %>
-      </li>
-    <% end %>
+  <%= render :partial => 'featured_star',
+             :locals => {:star => @stars.first, :size => :small} %>
+  <ul id="recent_stars">
+  <h2>Recent Stars</h2>
+    <%= render :partial => 'star', :collection => @stars[1..-1] %>
   </ul>
+  <div id="superstars">
+    <h2>Last week's superstars</h2>
+    <%= render :partial => "superstars",
+               :locals => {:users => @last_weeks_superstars} %>
+    <h2>This week's superstars</h2>
+    <%= render :partial => "superstars",
+               :locals => {:users => @current_superstars} %>
+   </div>
 <% else %>
   <div id="no_stars" class="round sheer">
     No one has any stars :(<br/>

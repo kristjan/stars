@@ -1,0 +1,12 @@
+<div id="featured_star" class="star sheer clearfix">
+  <%= render :partial => 'photo_pair',
+             :locals => {:star => star, :size => :small} %>
+  <div class="info">
+    <div class="reason">
+      <%= star.reason %>
+    </div>
+    <div class="time">
+      <%= friendly_time(star.created_at) %>
+    </div>
+  </div>
+</div>

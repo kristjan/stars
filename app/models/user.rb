@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
 
   named_scope :active, :conditions => {:active => true}
 
-  def self.by_recent_stars
-    User.all.sort_by do |user|
-      star = user.most_recent_star
-      (star.created_at if star).to_i
-    end.reverse
+  Superstar = Struct.new(:user, :count, :stars)
+  def self.superstars_for(week, limit=3)
+    monday = week.beginning_of_week
+    stars = Star.during(monday..(monday + 1.week))
+    stars.group_by(&:to).map do |user, stars|
+      Superstar.new(user, stars.size, stars)
+    end.sort_by{|superstar| -superstar.count}.first(limit)
   end
 
   def most_recent_star
