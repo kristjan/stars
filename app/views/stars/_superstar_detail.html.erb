@@ -5,8 +5,22 @@
       <%= star.reason %><br />
       <div class="signature">
         <span class="handwritten"><%= star.from.name %></span>
-        <%= photo(star.from, :size => :thumb) %>
+        <%= photo(star.from, :size => :square) %>
       </div>
+      <% if star.num_seconds > 0 %>
+        <div class="seconds clearfix">
+          &#9732;
+          <div class="faces">
+            <% star.seconds.in_groups_of(4, false).each do |group| %>
+              <p>
+                <% group.each do |second| %>
+                  <%= photo(second.user, :size => :square) %>
+                <% end %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="tail"></div>
   </div>

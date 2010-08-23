@@ -8,5 +8,6 @@
     <div class="time">
       <%= friendly_time(star.created_at) %>
     </div>
+    <%= render :partial => 'second', :locals => {:star => star} %>
   </div>
 </div>

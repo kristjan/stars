@@ -1,6 +1,10 @@
 class Star < ActiveRecord::Base
+  default_scope :include => :seconds
+
   belongs_to :from, :class_name => 'User'
   belongs_to :to,   :class_name => 'User'
+
+  has_many :seconds
 
   named_scope :during, lambda { |range|
     start = range.first.to_time.utc
@@ -16,6 +20,18 @@ class Star < ActiveRecord::Base
     Star.all(:conditions => {:created_at => 1.week.ago..Time.now}).
          group_by(&:to).
          sort_by {|(user, stars)| stars.size}.reverse
+  end
+
+  def num_seconds
+    seconds.count
+  end
+
+  def seconded_by?(user)
+    !!seconds.detect{|s| s.user == user}
+  end
+
+  def value
+    1 + num_seconds
   end
 
   after_create do |star|

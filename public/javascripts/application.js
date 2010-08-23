@@ -9,6 +9,9 @@ Stars.Scene = (function($) {
       staticSpeed: 0.3,
       staticSpeedX: 0.1
     });
+    setTimeout(function() {
+      $("#flash").hide('slide', {direction: 'left'})
+    }, 10000);
   };
 
   return {

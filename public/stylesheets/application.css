@@ -38,6 +38,22 @@ ul, ol {
   list-style: none;
 }
 
+#flash {
+  background-color: #F80;
+  border-bottom: 1px solid #000;
+  border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  color: #000;
+  left: 0px;
+  overflow: hidden;
+  padding: 5px 20px;
+  position: absolute;
+  text-shadow: none;
+  top: 5px;
+  white-space: nowrap;
+}
+
 #hills {
   background-image: url('/images/hills.png');
   bottom: 0px;
@@ -79,7 +95,6 @@ ul, ol {
 }
 
 .button {
-  border-top: 1px solid #96d1f8;
   background: #EEEEA3;
   background: -webkit-gradient(linear, left top, left bottom, from(#EEEEA3), to(#EE4));
   background: -moz-linear-gradient(top, #EEEEA3, #EE4);
@@ -112,6 +127,34 @@ ul, ol {
   background: -moz-linear-gradient(top, #CCCC83, #CC2);
 }
 
+.green_button {
+  background: #387733;
+  background: -webkit-gradient(linear, left top, left bottom, from(#387733), to(#286723));
+  background: -moz-linear-gradient(top, #387733, #286723);
+  border: 1px solid rgba(255,255,255,.1);
+  color: #FFF;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 5px 10px;
+  text-shadow: none;
+  vertical-align: middle;
+}
+
+.green_button:hover {
+  cursor: pointer;
+  box-shadow: rgba(255,255,255,.75) 0 0px 5px;
+  -moz-box-shadow: rgba(255,255,255,.75) 0 0px 5px;
+}
+
+.green_button:active {
+  background: #286723;
+  background: -webkit-gradient(linear, left top, left bottom, from(#286723), to(#185713));
+  background: -moz-linear-gradient(top, #286723, #185713);
+}
+
 .handwritten {
   font-family: "Reenie Beanie", Helvetica, Arial, sans-serif;
   font-size: 1.5em;
@@ -129,6 +172,13 @@ ul, ol {
   padding: 10px;
 }
 
+.seconded {
+  background-color: rgba(255,255,255,.3);
+  border: 1px solid rgba(0,66,111,.8);
+  font-size: 14px;
+  padding: 5px;
+}
+
 .small {
   font-size: .8em;
 }
@@ -140,7 +190,8 @@ ul, ol {
 }
 
 .time {
-  font-size: 10px;
+  display: inline-block;
+  font-size: 11px;
   opacity: .9;
   text-shadow: none;
 }

@@ -5,13 +5,22 @@ class User < ActiveRecord::Base
 
   named_scope :active, :conditions => {:active => true}
 
-  Superstar = Struct.new(:user, :count, :stars)
+  Superstar = Struct.new(:user, :count, :seconds, :stars)
   def self.superstars_for(week, limit=3)
     monday = week.beginning_of_week
     stars = Star.during(monday..(monday + 1.week))
     stars.group_by(&:to).map do |user, stars|
-      Superstar.new(user, stars.size, stars)
-    end.sort_by{|superstar| -superstar.count}.first(limit)
+      Superstar.new(user, stars.size, stars.map(&:num_seconds).sum, stars)
+    end.sort_by do |superstar|
+      # Sort by stars+seconds, ties go to the one with more stars
+      [superstar.count + superstar.seconds, superstar.count]
+    end.reverse.first(limit)
+  end
+
+  def can_second?(star)
+    return false if [star.from, star.to].include?(self)
+    return false if seconded?(star)
+    return true
   end
 
   def most_recent_star
@@ -20,5 +29,13 @@ class User < ActiveRecord::Base
 
   def others
     User.active.all(:conditions => ["`users`.`id` != ?", self.id])
+  end
+
+  def second(star)
+    Second.create(:star => star, :user => self) if can_second?(star)
+  end
+
+  def seconded?(star)
+    star.seconded_by?(self)
   end
 end

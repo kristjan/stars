@@ -9,4 +9,5 @@
       <%= friendly_time(star.created_at) %>
     </div>
   </div>
+  <%= render :partial => 'second', :locals => {:star => star} %>
 </li>

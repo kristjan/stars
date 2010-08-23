@@ -23,6 +23,7 @@ class StarsController < ApplicationController
     @star = Star.new(params[:star])
 
     if @star.save
+      flash[:notice] = "You starred #{@star.to.name}!"
       redirect_to root_path
     else
       render :action => "new"

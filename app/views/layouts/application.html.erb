@@ -16,6 +16,9 @@
   <body class="clearfix">
     <%= fb_connect_javascript_tag %>
     <%= init_fb_connect "XFBML", :js => :jquery %>
+    <% if flash[:notice] %>
+      <div id="flash"><%= flash[:notice] %></div>
+    <% end %>
     <% unless @hide_create_star %>
       <div id="create_a_star"><%= create_a_star_button %></div>
     <% end %>
