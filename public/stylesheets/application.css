@@ -17,13 +17,13 @@ body {
       rgb(0,42,76) 0%,
       rgb(0,56,99) 100%
   );
-  color: #CCC;
+  color: #FFF;
   font-family: verdana, arial, helvetica, sans-serif;
   min-height: 750px;
 }
 
 a {
-  color: #FFF;
+  color: #CC6;
   text-decoration: none;
 }
 
@@ -62,6 +62,50 @@ img {
   top: 0px;
   width: 1482px;
   z-index: -1000;
+}
+
+.round {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.sheer {
+  background-color: rgba(255,255,255,.3);
+  border: 1px solid rgba(255,255,255,.5);
+  padding: 10px;
+}
+
+.button {
+  border-top: 1px solid #96d1f8;
+  background: #EEEEA3;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EEEEA3), to(#EE4));
+  background: -moz-linear-gradient(top, #EEEEA3, #EE4);
+  border: 1px solid #FFF;
+  color: #3B5998;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+  margin: 10px 5px;
+  padding: 5px 10px;
+  vertical-align: middle;
+}
+
+.button:hover {
+  box-shadow: rgba(255,255,255,.75) 0 0px 10px;
+  -moz-box-shadow: rgba(255,255,255,.75) 0 0px 10px;
+  -webkit-box-shadow: rgba(255,255,255,.75) 0 0px 10px;
+}
+
+.button:active {
+  background: #CCCC83;
+  background: -webkit-gradient(linear, left top, left bottom, from(#CCCC83), to(#CC2));
+  background: -moz-linear-gradient(top, #CCCC83, #CC2);
 }
 
 .clearfix:after {

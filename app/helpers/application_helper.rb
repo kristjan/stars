@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def create_a_star_button
+    link_to "&#9733; Make someone a star", new_star_url, :class => 'button'
+  end
+
   FRIENDLY_TIME_FORMAT = '%H:%M%p on %b %d'
   def friendly_time(time)
     time.getlocal.strftime(FRIENDLY_TIME_FORMAT).
