@@ -147,6 +147,7 @@ ul, ol {
   cursor: pointer;
   box-shadow: rgba(255,255,255,.75) 0 0px 5px;
   -moz-box-shadow: rgba(255,255,255,.75) 0 0px 5px;
+  -webkit-box-shadow: rgba(255,255,255,.75) 0 0px 5px;
 }
 
 .green_button:active {
