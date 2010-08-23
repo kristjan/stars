@@ -23,7 +23,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   text-shadow: #000 1px 1px 1px;
-  width: 960px;
 }
 
 a {
@@ -134,6 +133,12 @@ ul, ol {
   font-size: .8em;
 }
 
+.lone_message {
+  margin: 250px auto;
+  text-align: center;
+  width: 400px;
+}
+
 .time {
   font-size: 10px;
   opacity: .9;
@@ -147,6 +152,11 @@ ul, ol {
   visibility: hidden;
   line-height: 0;
   height: 0;
+}
+
+.fbconnect_login_button {
+  display: block;
+  margin: 10px 5px;
 }
 
 .clearfix {
