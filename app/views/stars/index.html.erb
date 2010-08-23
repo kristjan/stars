@@ -1,5 +1,3 @@
-<% stylesheet 'users/index' %>
-
 <% if @stars.any? %>
   <div id="featured_star">
     <%= @stars.first.reason %>
@@ -16,4 +14,7 @@
     No one has any stars :(<br/>
     <%= link_to "Be the Big Bang!", new_star_path %>
   </div>
+<% end %>
+<% 30.times do %>
+  <div style="height:200px; margin: 10px; background-color: rgba(200,200,200,200); width: 200px;"></div>
 <% end %>

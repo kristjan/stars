@@ -11,3 +11,9 @@ Rails::Initializer.run do |config|
   config.action_mailer.default_url_options ||= {:host => 'localhost:3000'}
 end
 
+ActionView::Helpers::AssetTagHelper.
+    register_javascript_expansion :jquery => [
+  'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js',
+  'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js'
+]
+

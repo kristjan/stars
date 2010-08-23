@@ -1,2 +1,17 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+if (typeof (Stars) === 'undefined') {Stars = {}};
+
+Stars.Scene = (function($) {
+  var init = function() {
+    $('body').css('min-height', $(window).height());
+    $("#stars").scrollingParallax({
+    });
+  };
+
+  return {
+    init: init
+  };
+})(jQuery);
+
+$(document).ready(function() {
+  Stars.Scene.init();
+});

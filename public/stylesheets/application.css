@@ -1,7 +1,25 @@
-body { background-color: #000; color: #CCC; }
+* {
+  margin: 0px;
+  padding: 0px;
+}
 
-body, p, ol, ul, td {
+body {
+  background-color: #004276;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0, rgb(0,42,76)),
+      color-stop(1, rgb(0,56,99))
+  );
+  background: -moz-linear-gradient(
+      center top,
+      rgb(0,42,76) 0%,
+      rgb(0,56,99) 100%
+  );
+  color: #CCC;
   font-family: verdana, arial, helvetica, sans-serif;
+  min-height: 750px;
 }
 
 a {
@@ -13,44 +31,37 @@ img {
   border: none;
 }
 
-.fieldWithErrors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+#hills {
+  background-image: url('/images/hills.png');
+  bottom: 0px;
+  display: block;
+  height: 79px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
-#errorExplanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+#logo {
+  background-image: url('/images/logo.png');
+  background-repeat: no-repeat;
+  bottom: 25px;
+  height: 200px;
+  right: 10px;
+  position: fixed;
+  width: 254px;
+  z-index: -1000;
 }
 
-#errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
-}
-
-#errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 5px;
-}
-
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
-#persistent_links {
-  float: right;
+#stars {
+  background-image: url('/images/stars-background.png');
+  background-position: 0px -40px;
+  background-repeat: repeat;
+  height: 783px;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 1482px;
+  z-index: -1000;
 }
 
 .clearfix:after {
@@ -61,15 +72,15 @@ img {
   line-height: 0;
   height: 0;
 }
- 
+
 .clearfix {
   display: inline-block;
 }
- 
+
 html[xmlns] .clearfix {
   display: block;
 }
- 
+
 * html .clearfix {
   height: 1%;
 }
