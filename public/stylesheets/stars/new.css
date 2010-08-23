@@ -1,5 +1,14 @@
 form {
-  padding: 20px;
+  margin: 50px auto;
+  width: 600px;
+}
+
+form.sheer {
+  padding: 40px;
+}
+
+form p {
+  margin: 20px 0px;
 }
 
 form ul {
@@ -9,24 +18,35 @@ form ul {
 
 form textarea {
   color: #333;
-  font-size: 1.25em;
+  font-size: 16px;
   height: 100px;
-  width: 400px;
+  padding: 10px;
+  width: 575px;
 }
 
 form ul li {
   float: left;
   margin: 10px;
+  max-height: 90px;
   padding: 10px;
   text-align: center;
   width: 80px;
 }
 
 form ul li:hover {
-  border: 3px solid #CCC;
-  padding: 7px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(255,255,255,.5);
+}
+
+form ul li.selected {
+  background-color: rgba(255,255,255,.5);
+}
+
+form ul li .handwritten {
+  display: inline-block;
+  max-width: 85px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 form ul li img {
@@ -35,6 +55,9 @@ form ul li img {
 }
 
 form ul li input {
-  display: block;
-  margin: 5px auto 0px;
+  visibility: hidden;
+}
+
+form input.button {
+  float: right;
 }

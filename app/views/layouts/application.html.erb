@@ -16,7 +16,9 @@
   <body class="clearfix">
     <%= fb_connect_javascript_tag %>
     <%= init_fb_connect "XFBML", :js => :jquery %>
-    <div id="new_star"><%= create_a_star_button %></div>
+    <% unless @hide_create_star %>
+      <div id="create_a_star"><%= create_a_star_button %></div>
+    <% end %>
     <%= yield %>
     <div id="stars"></div>
     <div id="logo"></div>

@@ -1,14 +1,18 @@
 <%= stylesheet_link_tag 'stars/new' %>
-<% form_for(@star) do |f| %>
+<%= javascript_include_tag 'stars/new' %>
+<%- @hide_create_star = true -%>
+
+<% form_for(@star, :html => {:class => 'sheer round clearfix'}) do |f| %>
   <%= f.error_messages %>
   <%= f.hidden_field :from_id, :value => current_user.id %>
   <p>
-    Award a star to:
+    <h2>Award a star to:</h2>
     <ul class="clearfix">
     <% current_user.others.sort_by(&:name).each do |other| %>
-      <li>
-        <%= f.label "to_id_#{other.id}", photo(other) %>
-        <%= f.label "to_id_#{other.id}", name(other) %>
+      <li class="sheer round">
+      <%= f.label "to_id_#{other.id}",
+        render(:partial => '/shared/photo_with_name',
+               :locals => {:user => other, :size => :square}) %>
         <%= f.radio_button :to_id, other.id,
                            :checked => (other.id == params[:to].to_i) %>
       </li>
@@ -16,12 +20,10 @@
     </ul>
   </p>
   <p>
-    <%= f.label :reason, "What for?" %><br />
+    <h2>What for?</h2>
     <%= f.text_area :reason %>
   </p>
   <p>
-    <%= f.submit 'Star!' %>
+    <%= f.submit 'Make a Star!', :class => 'button' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', root_path %>

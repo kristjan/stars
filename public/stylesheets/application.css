@@ -61,7 +61,7 @@ ul, ol {
   z-index: -1000;
 }
 
-#new_star {
+#create_a_star {
   position: absolute;
   right: 25px;
   top: 15px;
@@ -101,6 +101,7 @@ ul, ol {
 }
 
 .button:hover {
+  cursor: pointer;
   box-shadow: rgba(255,255,255,.75) 0 0px 10px;
   -moz-box-shadow: rgba(255,255,255,.75) 0 0px 10px;
   -webkit-box-shadow: rgba(255,255,255,.75) 0 0px 10px;
@@ -115,7 +116,7 @@ ul, ol {
 .handwritten {
   font-family: "Reenie Beanie", Helvetica, Arial, sans-serif;
   font-size: 1.5em;
-  line-height: .5em;
+  margin: -10px 0px -5px;
 }
 
 .round {

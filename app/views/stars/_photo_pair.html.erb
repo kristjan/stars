@@ -1,15 +1,11 @@
 <div class="photos">
-  <div class="photo">
-    <%= photo(star.from, :size => size) %><br />
-    <span class="handwritten"><%= star.from.name %></span
-  </div>
+  <%= render :partial => '/shared/photo_with_name',
+             :locals => {:user => star.from, :size => size} %>
   <div class="starred">
     <div class="star">&#9733;</div>
     &rarr;
   </div>
-  <div class="photo">
-    <%= photo(star.to, :size => size) %><br />
-    <span class="handwritten"><%= star.to.name %></span
-  </div>
+  <%= render :partial => '/shared/photo_with_name',
+             :locals => {:user => star.to, :size => size} %>
 </div>
 
