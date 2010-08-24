@@ -178,9 +178,9 @@ h2 {
 }
 
 .superstars .stars li .tooltip .tail {
-  background-color: #000;
+  background-color: #222;
   border: 2px solid #FFF;
-  border-top-color: #000;
+  border-top-color: #222;
   border-radius: 0px 0px 0px 50px;
   -moz-border-radius: 0px 0px 50px;
   -webkit-border-radius: 0px 0px 50px;
