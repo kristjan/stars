@@ -4,7 +4,7 @@ class StarsController < ApplicationController
     this_week = Date.today.beginning_of_week
     last_week = this_week - 1.week
     @current_superstars = User.superstars_for(this_week)
-    @last_weeks_superstars = User.superstars_for(last_week)
+    @last_weeks_superstars = User.superstars_for(last_week, 5)
   end
 
   def show
