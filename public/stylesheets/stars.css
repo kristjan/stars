@@ -3,11 +3,8 @@ h2 {
 }
 
 #featured_star {
-  border: 1px solid rgba(255,255,255,.5);
-  border-width: 1px 0px;
   margin: 40px 0px 10px;
   padding: 30px 50px;
-  width: 100%;
 }
 
 #featured_star .photos {
@@ -24,7 +21,9 @@ h2 {
 }
 
 #featured_star .reason {
-  font-size: 30px;
+  font-size: 35px;
+  line-height: 42px;
+  margin-top: 10px;
 }
 
 #featured_star .second {
@@ -34,7 +33,7 @@ h2 {
 
 #recent_stars {
   float: left;
-  margin: 20px 30px 50px;
+  margin: 20px 30px 50px 0;
   width: 550px;
 }
 
@@ -43,14 +42,11 @@ h2 {
 }
 
 #superstars {
-  float: left;
-  margin: 20px 20px;
-  width: 300px;
+  float: right;
+  margin: 20px 0;
+  width: 350px;
 }
 
-#superstars h2 {
-  margin-left: 10px;
-}
 
 #recent_stars > .star {
   position: relative;
@@ -78,6 +74,12 @@ h2 {
   vertical-align: middle;
 }
 
+.star .photo .photo_holder {
+  height: 100px;
+  margin-bottom: 2px;
+  overflow: hidden;
+}
+
 .star .photos .starred {
   display: inline-block;
   text-align: center;
@@ -98,8 +100,12 @@ h2 {
   margin-bottom: 5px;
 }
 
+.no-stars {
+  text-align: center;
+}
+
 .superstars {
-  margin: 10px 10px 20px;
+  margin: 10px 0 30px;
 }
 
 .superstars li {
@@ -112,12 +118,12 @@ h2 {
 
 .superstars .info {
   display: inline-block;
-  width: 180px;
+  width: 253px;
 }
 
 .superstars .FB_profile_pic {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 5px;
   vertical-align: top;
 }
 

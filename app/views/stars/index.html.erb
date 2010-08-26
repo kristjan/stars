@@ -8,10 +8,10 @@
     <%= render :partial => 'star', :collection => @stars[1..-1] %>
   </ul>
   <div id="superstars">
-    <h2>Last week's superstars</h2>
+    <h2>Last Week's Superstars</h2>
     <%= render :partial => "superstars",
                :locals => {:users => @last_weeks_superstars} %>
-    <h2>This week's contenders</h2>
+    <h2>This Week's Contenders</h2>
     <%= render :partial => "superstars",
                :locals => {:users => @current_superstars} %>
    </div>

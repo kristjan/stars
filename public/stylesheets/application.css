@@ -38,6 +38,10 @@ ul, ol {
   list-style: none;
 }
 
+#container {
+  margin: 0 auto;
+  width: 960px;
+}
 #flash {
   background-color: #F80;
   border-bottom: 1px solid #000;
@@ -163,14 +167,18 @@ ul, ol {
 }
 
 .round {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
 .sheer {
   background-color: rgba(255,255,255,.3);
-  padding: 10px;
+  padding: 15px;
+}
+
+.bordered {
+  border: 1px solid rgba(255,255,255,.5);
 }
 
 .seconded {
@@ -192,9 +200,10 @@ ul, ol {
 
 .time {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   opacity: .9;
   text-shadow: none;
+  text-transform: uppercase;
 }
 
 .clearfix:after {
