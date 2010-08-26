@@ -100,6 +100,7 @@ h2 {
 .star .reason {
   font-weight: bold;
   margin-bottom: 5px;
+  overflow: hidden;
 }
 
 .no-stars {
