@@ -38,6 +38,16 @@ ul, ol {
   list-style: none;
 }
 
+#header {
+  margin: 40px 0 20px;
+}
+#header h1 {
+  font-size: 20px;
+  line-height: 50px;
+}
+#header #create_a_star {
+  float: right;
+}
 #container {
   margin: 0 auto;
   width: 960px;
@@ -80,12 +90,6 @@ ul, ol {
   z-index: -1000;
 }
 
-#create_a_star {
-  position: absolute;
-  right: 25px;
-  top: 15px;
-}
-
 #stars {
   background-image: url('/images/stars-background.png');
   background-position: 0px -40px;
@@ -106,6 +110,7 @@ ul, ol {
   color: #3B5998;
   display: inline-block;
   font-size: 20px;
+  font-weight: bold;
   border-radius: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -113,7 +118,7 @@ ul, ol {
   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
   margin: 10px 5px;
-  padding: 5px 10px;
+  padding: 5px 12px 5px 10px;
   text-shadow: none;
   vertical-align: middle;
 }
@@ -173,12 +178,12 @@ ul, ol {
 }
 
 .sheer {
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255,255,255,.2);
   padding: 15px;
 }
 
 .bordered {
-  border: 1px solid rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.2);
 }
 
 .seconded {
