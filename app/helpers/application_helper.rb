@@ -38,7 +38,10 @@ module ApplicationHelper
   DEFAULT_PHOTO_OPTIONS = {:linked => false,
                            :size => :square}
   def photo(user, opts={})
-    fb_profile_pic(user.facebook_uid, DEFAULT_PHOTO_OPTIONS.merge(opts))
+    link_to(
+      fb_profile_pic(user.facebook_uid, DEFAULT_PHOTO_OPTIONS.merge(opts)),
+      new_star_url(:to => user.id)
+    )
   end
 
   def linked_photo(user, opts={})

@@ -13,6 +13,9 @@ class StarsController < ApplicationController
 
   def new
     @star = Star.new(:to_id => params[:to].to_i)
+    if current_user.id == @star.to_id
+      flash.now[:notice] = "You can't star yourself. How about someone else?"
+    end
   end
 
   def edit
