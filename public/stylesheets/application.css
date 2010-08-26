@@ -41,15 +41,6 @@ ul, ol {
 #header {
   margin: 40px 0 20px;
 }
-#header h1 {
-  background-image: url(/images/logo-top.png);
-  background-repeat: no-repeat;
-  font-size: 20px;
-  height: 44px;
-  line-height: 44px;
-  text-indent: -9999px;
-  width: 181px;
-}
 #header #create_a_star {
   float: right;
 }
