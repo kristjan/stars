@@ -7,6 +7,11 @@ h2 {
   padding: 30px 50px;
 }
 
+#featured_star .photo_holder {
+	height: 100px;
+	overflow: hidden;
+}
+
 #featured_star .photos {
   margin-right: 20px;
 }
@@ -74,9 +79,7 @@ h2 {
 }
 
 .star .photo .photo_holder {
-  height: 100px;
   margin-bottom: 2px;
-  overflow: hidden;
 }
 
 .star .photos .starred {
