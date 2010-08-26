@@ -40,6 +40,8 @@ form ul li:hover {
 
 form ul li.selected {
   background-color: rgba(255,255,255,.5);
+  border: 2px solid #FFF;
+  margin: 8px;
 }
 
 form ul li .handwritten {

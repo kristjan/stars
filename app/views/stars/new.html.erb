@@ -13,8 +13,7 @@
       <%= f.label "to_id_#{other.id}",
         render(:partial => '/shared/photo_with_name',
                :locals => {:user => other, :size => :square}) %>
-        <%= f.radio_button :to_id, other.id,
-                           :checked => (other.id == params[:to].to_i) %>
+        <%= f.radio_button :to_id, other.id %>
       </li>
     <% end %>
     </ul>

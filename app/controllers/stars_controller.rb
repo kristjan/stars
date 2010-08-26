@@ -12,7 +12,7 @@ class StarsController < ApplicationController
   end
 
   def new
-    @star = Star.new
+    @star = Star.new(:to_id => params[:to].to_i)
   end
 
   def edit
