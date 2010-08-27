@@ -146,6 +146,10 @@ h2 {
   position: relative;
 }
 
+.superstars .stars li.second {
+  cursor: default;
+}
+
 .superstars .stars li .tooltip {
   bottom: 1em;
   cursor: default;
