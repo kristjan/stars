@@ -9,18 +9,16 @@ class Mailer < ActionMailer::Base
   end
 
   def report
-    this_monday = Date.today.beginning_of_week
-    last_monday = this_monday - 1.week
-    stars = Star.during(last_monday..this_monday)
-    num_stars = stars.size
-    num_tos = stars.map(&:to_id).uniq.size
-    num_froms = stars.map(&:from_id).uniq.size
+    superstars = Superstar.last_week
+    num_stars = superstars.map(&:num_stars).sum
+    num_tos = superstars.map{|s| s.stars.map(&:to_id)}.flatten.uniq.size
+    num_froms = superstars.map{|s| s.stars.map(&:from_id)}.flatten.uniq.size
 
-    subject "Superstars - #{this_monday.strftime('%B %d, %Y')}"
+    subject "Superstars - #{Date.today.beginning_of_week.strftime('%B %d, %Y')}"
     recipients EVERYONE
     from 'The King of All Causemos'
 
-    body :superstars => User.superstars_for(last_monday),
+    body :superstars => Superstar.last_week,
          :num_stars => num_stars, :num_tos => num_tos,
          :num_froms => num_froms
   end

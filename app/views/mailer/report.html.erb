@@ -1,36 +1,69 @@
-<% if @num_stars > 0 %>
-  <h2 style="font-weight: normal; font-size: 14px;">
-    <strong><%= pluralize(@num_froms, 'person') %></strong> gave
-    <strong><%= pluralize(@num_stars, 'star') %></strong> to
-    <strong><%= pluralize(@num_tos, 'dogooder') %></strong>
-    last week!
-  </h2>
-  <h1>But the real superstars are...</h1>
-  <ol style="margin-left: 10px;">
-    <% @superstars.each do |superstar| %>
-      <li style="margin-left: 0px; margin-bottom: 20px;">
-        <h2 style="font-size: 12px;">
-          <%= superstar.user.name %>
-          earned <%= pluralize(superstar.count, 'star') %>
-          and <%= pluralize(superstar.seconds, 'second') %>!
-        </h2>
-      </li>
-    <% end %>
-  </ol>
-  <p>Good work, team!</p>
-<% else %>
-  <p>
-    I can't see! It's so dark in here because you guys didn't give out a single star this past week.
+<div id="content"
+     style="background-color: #004276;
+            color: #FFF;
+            padding: 10px 20px;">
+  <% if @num_stars > 0 %>
+    <h1 style="font-weight: normal;
+               margin: 10px 0px;">
+      <strong style="color: #DD0;">
+        <%= pluralize(@num_froms, 'person') %>
+      </strong> gave
+      <strong style="color: #DD0;">
+        <%= pluralize(@num_stars, 'star') %>
+      </strong> to
+      <strong style="color: #DD0;">
+        <%= pluralize(@num_tos, 'dogooder') %>
+      </strong> last week!
+    </h1>
+    <h2>But the real superstars are...</h2>
+    <ol style="list-style-type: none; padding: 0px;">
+      <% @superstars.each do |superstar| %>
+        <li style="border: 2px solid #FFF;
+                   background-color: #4C6C85;
+                   color: #FFF;
+                   font-size: 14px;
+                   margin: 10px 0px;
+                   padding: 5px 10px;">
+          <strong style="color: #DD0"><%= superstar.user.name %></strong> earned
+          <strong><%= pluralize(superstar.num_stars, 'star') %></strong>
+          <% if superstar.num_seconds > 0 %>
+            and <strong><%= pluralize(superstar.num_seconds, 'second') %></strong>!
+          <% end %>
+          <ul style="list-style-type: none;
+                     margin: 5px 10px;
+                     padding: 0px;">
+            <% superstar.stars.each do |star| %>
+              <li style="margin: 10px 0px; line-height: 12px;">
+                &#9733; <%= star.reason %><br />
+                <em style="font-size: 10px; padding-left: 18px;">
+                  From <%= star.from.name %>.
+                  <% if star.num_seconds > 0 %>
+                      Seconded by <%= star.seconds.map{|s| s.user.name}.to_sentence %>.
+                  <% end %>
+                </em>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ol>
+    <h1 style="font-weight: normal; text-align: center;">
+      Good work, team!
+    </h1>
+  <% else %>
+    <p>
+      I can't see! It's so dark in here because you guys didn't give out a single star last week!
+    </p>
+    <p>
+      Stop slacking and go delight your peers!
+    </p>
+  <% end %>
+  <p style="text-align: center;">
+    <%= link_to "&#9733; See Stars &#9733;", root_url,
+                  :style => "
+                    background-color: #EE4;
+                    color: #3B5998;
+                    font-size: 16px;
+                    padding: 5px 10px;" %>
   </p>
-  <p>
-    Stop slacking and go delight your peers!
-  </p>
-<% end %>
-<p>
-<%= link_to "&#9733; See Stars &#9733;", root_url,
-              :style => "
-                background-color: #EE4;
-                color: #3B5998;
-                font-size: 16px;
-                padding: 5px 10px;" %>
-</p>
+</div>
