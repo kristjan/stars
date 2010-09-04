@@ -5,19 +5,6 @@ class User < ActiveRecord::Base
 
   named_scope :active, :conditions => {:active => true}
 
-  Superstar = Struct.new(:user, :count, :seconds, :stars)
-  def self.superstars_for(week, limit=nil)
-    monday = week.beginning_of_week
-    stars = Star.during(monday..(monday + 1.week))
-    superstars = stars.group_by(&:to).map do |user, stars|
-      Superstar.new(user, stars.size, stars.map(&:num_seconds).sum, stars)
-    end.sort_by do |superstar|
-      # Sort by stars+seconds, ties go to the one with more stars
-      [superstar.count + superstar.seconds, superstar.count]
-    end.reverse
-    limit.nil? ? superstars : superstars.first(limit)
-  end
-
   def can_second?(star)
     return false if [star.from, star.to].include?(self)
     return false if seconded?(star)

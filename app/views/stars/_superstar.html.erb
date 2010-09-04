@@ -2,14 +2,14 @@
   <%= photo(superstar.user, :size => :square) %>
   <div class="info">
     <div class="count">
-      &#9733;<%= superstar.count %>
-      &#9732;<%= superstar.seconds %>
+      &#9733;<%= superstar.num_stars %>
+      &#9732;<%= superstar.num_seconds %>
     </div>
     <%= superstar.user.name %>
     <ul class="stars sheer">
       <%= render :partial => "superstar_detail",
                  :collection => superstar.stars %>
-      <% superstar.seconds.times do %>
+      <% superstar.num_seconds.times do %>
         <li class="second">&#9732;</li>
       <% end %>
     </ul>
