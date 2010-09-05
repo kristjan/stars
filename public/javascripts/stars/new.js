@@ -6,7 +6,8 @@ Stars.New = (function($) {
     $('form li').click(selectUser);
   };
 
-  var selectUser = function() {
+  var selectUser = function(e) {
+    e.preventDefault();
     var li = $(this);
     li.siblings().removeClass('selected');
     li.addClass('selected');
