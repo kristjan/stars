@@ -63,3 +63,9 @@ form ul li input {
 form input.button {
   float: right;
 }
+
+form .chars_left {
+  font-size: 12px;
+  margin: 5px 0px;
+  text-align: right;
+}

@@ -18,9 +18,12 @@
     <% end %>
     </ul>
   </p>
-  <p>
+  <p class="clearfix">
     <h2>What for?</h2>
-    <%= f.text_area :reason %>
+    <%= f.text_area :reason, :maxlength => 1024 %>
+    <div class="chars_left">
+      You have 1024 characters left.
+    </div>
   </p>
   <p>
     <%= f.submit 'Make a Star!', :class => 'button' %>

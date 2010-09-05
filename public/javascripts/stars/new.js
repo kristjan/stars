@@ -4,6 +4,19 @@ Stars.New = (function($) {
   var init = function() {
     setSelected();
     $('form li').click(selectUser);
+    limitReason();
+  };
+
+  var limitReason = function() {
+    $('textarea[maxlength]').keyup(function(){
+      var input = $(this);
+      var max = parseInt(input.attr('maxlength'));
+      var text = input.val();
+      if(text.length > max){
+        input.val(text.substr(0, input.attr('maxlength')));
+      }
+      input.siblings('.chars_left').html('You have ' + (max - input.val().length) + ' characters left.');
+    });
   };
 
   var selectUser = function() {
