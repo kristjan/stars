@@ -1,5 +1,5 @@
 class Star < ActiveRecord::Base
-  default_scope :include => :seconds
+  default_scope :include => :seconds, :order => 'id desc'
 
   belongs_to :from, :class_name => 'User'
   belongs_to :to,   :class_name => 'User'

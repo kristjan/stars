@@ -1,0 +1,28 @@
+#make_a_star {
+  float: right;
+  width: 350px;
+}
+
+form {
+  margin: 10px 0px;
+}
+
+form textarea {
+  color: #333;
+  height: 150px;
+  font-size: 16px;
+  padding: 10px;
+  width: 300px;
+}
+
+form input.button {
+  float: right;
+}
+
+form .chars_left {
+  display: block;
+  font-size: 12px;
+  margin: 5px 0px;
+  text-align: right;
+}
+

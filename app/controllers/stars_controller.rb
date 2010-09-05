@@ -23,7 +23,7 @@ class StarsController < ApplicationController
   end
 
   def create
-    @star = Star.new(params[:star])
+    @star = Star.new(params[:star].merge(:from_id => current_user.id))
 
     if @star.save
       flash[:notice] = "You starred #{@star.to.name}!"

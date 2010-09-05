@@ -1,5 +1,6 @@
+<% stylesheet 'stars' %>
 <div id="featured_star" class="star sheer round bordered clearfix">
-  <%= render :partial => 'photo_pair',
+  <%= render :partial => 'shared/photo_pair',
              :locals => {:star => star, :size => :small} %>
   <div class="info">
     <div class="reason">
@@ -8,6 +9,6 @@
     <div class="time">
       <%= friendly_time(star.created_at) %>
     </div>
-    <%= render :partial => 'second', :locals => {:star => star} %>
+    <%= render :partial => 'stars/second', :locals => {:star => star} %>
   </div>
 </div>

@@ -6,7 +6,7 @@
   </tr>
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.name %></td>
+      <td><%= link_to user.name, user_path(user) %></td>
       <td><%= mail_to nil, user.email %></td>
       <td><%= user.active? %></td>
       <td><%= link_to "Edit", edit_user_path(user) %></td>

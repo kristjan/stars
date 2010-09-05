@@ -1,5 +1,5 @@
 <li class="star sheer round clearfix">
-  <%= render :partial => 'photo_pair',
+  <%= render :partial => 'shared/photo_pair',
              :locals => {:star => star, :size => :square} %>
   <div class="info">
     <div class="reason">
@@ -9,5 +9,5 @@
       <%= friendly_time(star.created_at) %>
     </div>
   </div>
-  <%= render :partial => 'second', :locals => {:star => star} %>
+  <%= render :partial => 'stars/second', :locals => {:star => star} %>
 </li>

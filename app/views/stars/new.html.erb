@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag 'stars/new' %>
 <%= javascript_include_tag 'stars/new' %>
+<%= javascript_include_tag 'form' %>
 <%- @hide_create_star = true -%>
 
 <% form_for(@star, :html => {:class => 'sheer round clearfix'}) do |f| %>
   <%= f.error_messages %>
-  <%= f.hidden_field :from_id, :value => current_user.id %>
   <p>
     <h2>Award a star to:</h2>
     <ul class="clearfix">
@@ -18,12 +18,12 @@
     <% end %>
     </ul>
   </p>
-  <p class="clearfix">
+  <p>
     <h2>What for?</h2>
     <%= f.text_area :reason, :maxlength => 1024 %>
-    <div class="chars_left">
+    <span class="chars_left">
       You have 1024 characters left.
-    </div>
+    </span>
   </p>
   <p>
     <%= f.submit 'Make a Star!', :class => 'button' %>

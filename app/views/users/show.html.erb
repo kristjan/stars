@@ -1,0 +1,23 @@
+<% stylesheet 'users' %>
+<%= javascript_include_tag 'form' %>
+<%= render :partial => 'stars/featured_star',
+           :locals => {:star => @user.stars.first} %>
+<ul id="recent_stars">
+  <h2>Older stars</h2>
+  <%= render :partial => 'stars/star', :collection => @user.stars[1..-1] %>
+</ul>
+<div id="make_a_star">
+  <h2>Make <%= @user.name %> a star</h2>
+  <% form_for(@star, :html => {:class => 'sheer round clearfix'}) do |f| %>
+    <%= f.hidden_field :to_id %>
+    <p>
+      <%= f.text_area :reason, :maxlength => 1024 %>
+      <span class="chars_left">
+        You have 1024 characters left.
+      </span>
+    </p>
+    <p>
+      <%= f.submit 'Make a Star!', :class => 'button' %>
+    </p>
+  <% end %>
+</div>
