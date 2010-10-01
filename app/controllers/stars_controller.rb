@@ -12,8 +12,8 @@ class StarsController < ApplicationController
   end
 
   def new
-    @star = Star.new(:to_id => params[:to].to_i)
-    if current_user.id == @star.to_id
+    @star = Star.new(params[:star])
+    if @star.to_ids.include?(current_user.id)
       flash.now[:notice] = "You can't star yourself. How about someone else?"
     end
   end
@@ -23,10 +23,12 @@ class StarsController < ApplicationController
   end
 
   def create
+logger.debug params.inspect
     @star = Star.new(params[:star].merge(:from_id => current_user.id))
+logger.debug "hi there it's #{@star}"
 
     if @star.save
-      flash[:notice] = "You starred #{@star.to.name}!"
+      flash[:notice] = "You starred #{@star.to_sentence}!"
       redirect_to root_path
     else
       render :action => "new"

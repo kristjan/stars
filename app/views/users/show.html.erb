@@ -1,11 +1,17 @@
 <% stylesheet 'users' %>
 <%= javascript_include_tag 'form' %>
-<%= render :partial => 'stars/featured_star',
-           :locals => {:star => @user.stars.first} %>
-<ul id="recent_stars">
-  <h2>Older stars</h2>
-  <%= render :partial => 'stars/star', :collection => @user.stars[1..-1] %>
+<% if !@user.stars.blank? %>
+  <%= render :partial => 'stars/featured_star',
+             :locals => {:star => @user.stars.first} %>
+<% end %>
+
+<h2>Older stars</h2>
+<% if !@user.stars.blank? %>
+  <ul id="recent_stars">
+    <%= render :partial => 'stars/star', :collection => @user.stars[1..-1] %>
 </ul>
+<% end %>
+
 <div id="make_a_star">
   <h2>Make <%= @user.name %> a star</h2>
   <% form_for(@star, :html => {:class => 'sheer round clearfix'}) do |f| %>

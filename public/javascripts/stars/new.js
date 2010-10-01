@@ -3,19 +3,19 @@ if (typeof (Stars) === 'undefined') {Stars = {}};
 Stars.New = (function($) {
   var init = function() {
     setSelected();
-    $('form li').click(selectUser);
+    $('form li').click(clickedUser);
   };
 
-  var selectUser = function(e) {
+  var clickedUser = function(e) {
     e.preventDefault();
     var li = $(this);
-    li.siblings().removeClass('selected');
-    li.addClass('selected');
-    li.find('input:radio').attr('checked', true);
+	var cb = li.find('input:checkbox');
+	cb.attr('checked', !cb.attr('checked'));
+    li.toggleClass('selected', cb.attr('checked'));
   };
 
   var setSelected = function() {
-    radio = $('#new_star input:radio:checked').parent().addClass('selected');
+    $('#new_star input:checkbox:checked').parent().addClass('selected');
   }
 
   return {

@@ -23,7 +23,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @star = Star.new(:to => @user)
+    @star = Star.new()
+    # @star = Star.new(:to => @user)
   end
 
   def update

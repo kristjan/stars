@@ -1,8 +1,13 @@
 class Star < ActiveRecord::Base
   default_scope :include => :seconds, :order => 'id desc'
 
+  # TODO !!! re-add :to concept once it makes sense
+  # validates_presence_of :from, :to, :reason
+  validates_presence_of :from, :to, :reason
+
   belongs_to :from, :class_name => 'User'
-  belongs_to :to,   :class_name => 'User'
+
+  has_and_belongs_to_many :to, :class_name => 'User'
 
   has_many :seconds
 
@@ -15,6 +20,16 @@ class Star < ActiveRecord::Base
     count ||= 10
     {:order => 'id desc', :limit => count}
   }
+
+  # ok this might want to go away
+  def to_ids
+    to.map {|u| u.id }
+  end
+
+  def to_sentence
+    names = to.map {|u| u.name }
+	names.to_sentence
+  end
 
   def self.past_week_by_user
     Star.all(:conditions => {:created_at => 1.week.ago..Time.now}).

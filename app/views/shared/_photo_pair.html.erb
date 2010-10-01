@@ -5,7 +5,9 @@
     <div class="star">&#9733;</div>
     &rarr;
   </div>
+  <% star.to.each do |t| %>
   <%= render :partial => '/shared/photo_with_name',
-             :locals => {:user => star.to, :size => size} %>
+             :locals => {:user => t, :size => size} %>
+  <% end %>
 </div>
 

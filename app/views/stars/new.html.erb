@@ -1,30 +1,27 @@
-<%= stylesheet_link_tag 'stars/new' %>
+<%= stylesheet 'stars/new' %>
 <%= javascript_include_tag 'stars/new' %>
 <%= javascript_include_tag 'form' %>
 <%- @hide_create_star = true -%>
 
 <% form_for(@star, :html => {:class => 'sheer round clearfix'}) do |f| %>
   <%= f.error_messages %>
-  <p>
-    <h2>Award a star to:</h2>
-    <ul class="clearfix">
-    <% current_user.others.sort_by(&:name).each do |other| %>
-      <li class="sheer round">
+
+  <h2>Award a star to:</h2>
+  <ul class="clearfix">
+  <% current_user.others.sort_by(&:name).each do |other| %>
+    <li class="sheer round">
       <%= f.label "to_id_#{other.id}",
         render(:partial => '/shared/photo_with_name',
                :locals => {:user => other, :size => :square}) %>
-        <%= f.radio_button :to_id, other.id %>
-      </li>
-    <% end %>
-    </ul>
-  </p>
-  <p>
-    <h2>What for?</h2>
-    <%= f.text_area :reason, :maxlength => 1024 %>
-    <span class="chars_left">
-      You have 1024 characters left.
-    </span>
-  </p>
+      <%= check_box_tag "star[to_ids][]", "#{other.id}", @star.to_ids.include?(other.id) %>
+    </li>
+  <% end %>
+  </ul>
+  <h2>What for?</h2>
+  <%= f.text_area :reason, :maxlength => 1024 %>
+  <span class="chars_left">
+    You have 1024 characters left.
+  </span>
   <p>
     <%= f.submit 'Make a Star!', :class => 'button' %>
   </p>

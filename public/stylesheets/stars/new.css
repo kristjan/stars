@@ -11,7 +11,7 @@ form p {
   margin: 20px 0px;
 }
 
-form ul {
+form ul.clearfix {
   list-style: none;
   width: 600px;
 }
@@ -24,7 +24,7 @@ form textarea {
   width: 575px;
 }
 
-form ul li {
+form ul.clearfix li {
   float: left;
   margin: 10px;
   max-height: 90px;
@@ -33,30 +33,30 @@ form ul li {
   width: 80px;
 }
 
-form ul li:hover {
+form ul.clearfix li:hover {
   cursor: pointer;
   background-color: rgba(255,255,255,.5);
 }
 
-form ul li.selected {
+form ul.clearfix li.selected {
   background-color: rgba(255,255,255,.5);
   border: 2px solid #FFF;
   margin: 8px;
 }
 
-form ul li .handwritten {
+form ul.clearfix li .handwritten {
   display: inline-block;
   max-width: 85px;
   overflow: hidden;
   white-space: nowrap;
 }
 
-form ul li img {
+form ul.clearfix li img {
   display: block;
   margin: 0px auto;
 }
 
-form ul li input {
+form ul.clearfix li input {
   visibility: hidden;
 }
 
