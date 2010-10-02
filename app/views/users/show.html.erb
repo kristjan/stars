@@ -15,12 +15,10 @@
 <div id="make_a_star">
   <h2>Make <%= @user.name %> a star</h2>
   <% form_for(@star, :html => {:class => 'sheer round clearfix'}) do |f| %>
-    <%= f.hidden_field :to_id %>
+    <%= hidden_field_tag 'star[to_ids][]', @user.id %>
     <p>
       <%= f.text_area :reason, :maxlength => 1024 %>
-      <span class="chars_left">
-        You have 1024 characters left.
-      </span>
+      <span class="chars_left"></span>
     </p>
     <p>
       <%= f.submit 'Make a Star!', :class => 'button' %>

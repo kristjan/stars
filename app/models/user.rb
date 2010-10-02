@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   acts_as_authentic
 
-  has_many :stars, :foreign_key => :to_id
+  has_and_belongs_to_many :stars
+  has_and_belongs_to_many :teams
 
   named_scope :active, :conditions => {:active => true}
 

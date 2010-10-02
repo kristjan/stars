@@ -3,8 +3,8 @@
 <% if @stars.any? %>
   <%= render :partial => 'featured_star',
              :locals => {:star => @stars.first, :size => :small} %>
+  <h2>Recent Stars</h2>
   <ul id="recent_stars">
-    <h2>Recent Stars</h2>
     <%= render :partial => 'star', :collection => @stars[1..-1] %>
   </ul>
   <div id="superstars">

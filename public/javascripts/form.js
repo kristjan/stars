@@ -15,6 +15,7 @@ Stars.Form = (function($) {
       }
       input.siblings('.chars_left').html('You have ' + (max - input.val().length) + ' characters left.');
     });
+    $('textarea[maxlength]').keyup();
   };
 
   return {
