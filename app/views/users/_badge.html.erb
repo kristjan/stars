@@ -30,6 +30,6 @@
     </div>
   <% end %>
   <div class="new_star">
-    <%= link_to "Give #{name(user)} a star", new_star_path(:to => user.id) %>
+    <%= link_to "Give #{name(user)} a star", new_star_path("star[to_ids]" => [user.id]) %>
   </div>
 </div>
