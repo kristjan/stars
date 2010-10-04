@@ -16,13 +16,6 @@ class ManyToManyStarsUsers < ActiveRecord::Migration
   end
 
   def self.down
-	add_column :stars, :to_id, :integer, :null => false
-
-	# pick the first id from each multi-"to" star to backport
-	Star.all.each do |star|
-	  star.to_id = star.to.first.id
-	end
-
-    drop_table :stars_users
+    raise ActiveRecord::IrreversibleMigration
   end
 end
