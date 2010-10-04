@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   named_scope :active, :conditions => {:active => true}
 
   def can_second?(star)
-    return false if [star.from, star.to.flatten].include?(self)
+    return false if [star.from, star.to].flatten.include?(self)
     return false if seconded?(star)
     return true
   end
