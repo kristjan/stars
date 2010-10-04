@@ -7,7 +7,6 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :user_sessions
   map.resources :users
-  map.resources :teams
 
   map.root      :stars
 end
