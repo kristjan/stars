@@ -1,2 +1,3 @@
 <%= render :partial => 'users/badge',
-           :locals => {:user => @star.to, :star => @star} %>
+           :collection => @star.to, :as => :user,
+           :locals => {:star => @star} %>

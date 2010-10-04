@@ -1,5 +1,5 @@
 <% stylesheet 'users/badge' %>
-<% star = user.most_recent_star unless local_assigns['star'] %>
+<% star = user.most_recent_star unless local_assigns.symbolize_keys[:star] %>
 
 <div class="badge">
   <div class="info">
