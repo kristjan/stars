@@ -1,5 +1,5 @@
 set :application, "stars"
-set :git_user, "kristjan"
+set :git_user, "emersonrp"
 set :repository,  "git://github.com/#{git_user}/#{application}.git"
 set :user, :deploy
 
