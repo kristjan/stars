@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   acts_as_authentic
 
   has_and_belongs_to_many :stars
-  has_and_belongs_to_many :teams
 
   named_scope :active, :conditions => {:active => true}
 
