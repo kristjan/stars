@@ -19,6 +19,8 @@ class Star < ActiveRecord::Base
     {:order => 'id desc', :limit => count}
   }
 
+  # note that this is not "to_sentence" as in "convert star to sentence"
+  # but is instead "the sentence representing :to"
   def to_sentence
     names = to.map {|u| u.name }
 	names.to_sentence
