@@ -23,9 +23,7 @@ class StarsController < ApplicationController
   end
 
   def create
-logger.debug params.inspect
     @star = Star.new(params[:star].merge(:from_id => current_user.id))
-logger.debug "hi there it's #{@star}"
 
     if @star.save
       flash[:notice] = "You starred #{@star.to_sentence}!"
