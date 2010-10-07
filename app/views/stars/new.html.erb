@@ -9,16 +9,18 @@
   <h2>Award a star to:</h2>
   <ul class="clearfix">
 
-  <% Team.all.group_by(&:active?)[true].sort_by(&:name).each do |team| %>
+  <% if t = Team.all.group_by(&:active?)[true] %>
+    <% t.sort_by(&:name).each do |team| %>
 
-    <li class="team sheer round" id="team<%= team.id %>">
+      <li class="team sheer round" id="team<%= team.id %>">
 
-      <%= render(:partial => '/shared/photo_with_name',
-                 :locals => {:user => team, :size => :square})
-      %>
-      <%= check_box_tag "team[users][]", team.user_ids.join(',') %>
+        <%= render(:partial => '/shared/photo_with_name',
+                  :locals => {:user => team, :size => :square})
+        %>
+        <%= check_box_tag "team[users][]", team.user_ids.join(',') %>
 
-    </li>
+      </li>
+    <% end %>
   <% end %>
   </ul>
 
