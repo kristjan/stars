@@ -4,14 +4,14 @@ class ManyToManyStarsUsers < ActiveRecord::Migration
       t.integer :user_id, :null => false
       t.integer :star_id, :null => false
     end
-	add_index :stars_users, :user_id
-	add_index :stars_users, :star_id
+	  add_index :stars_users, :user_id
+	  add_index :stars_users, :star_id
 
-	Star.all.each do |star|
-	  star.to << User.find(star.to_id)
+	  Star.all.each do |star|
+	    star.to << User.find(star.to_id)
     end
 
-	remove_column :stars, :to_id
+	  remove_column :stars, :to_id
 	
   end
 
