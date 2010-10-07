@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
 
     @team.user_ids = params[:team][:user_ids]
     @team.name     = params[:team][:name]
-    @team.active   = params[:active]
+    @team.active   = params[:team][:active]
 
     if @team.save
       flash[:notice] = "Team #{@team.name} updated!"

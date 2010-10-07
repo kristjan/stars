@@ -11,12 +11,12 @@
     <%= f.text_field :name %>
   </p>
   <ul class="clearfix">
-  <% current_user.others.sort_by(&:name).each do |other| %>
+  <% User.all.find_all{|u| u.active?}.sort_by(&:name).each do |user| %>
     <li class="user sheer round">
-      <%= f.label "to_id_#{other.id}",
+      <%= f.label "to_id_#{user.id}",
         render(:partial => '/shared/photo_with_name',
-               :locals => {:user => other, :size => :square}) %>
-      <%= check_box_tag "team[user_ids][]", "#{other.id}", @team.user_ids.include?(other.id), :id => "team_user_ids_" + other.id.to_s %>
+               :locals => {:user => user, :size => :square}) %>
+      <%= check_box_tag "team[user_ids][]", "#{user.id}", @team.user_ids.include?(user.id), :id => "team_user_ids_" + user.id.to_s %>
     </li>
   <% end %>
   </ul>
