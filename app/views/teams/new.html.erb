@@ -1,0 +1,26 @@
+<% stylesheet 'users/list' %>
+<%= javascript_include_tag 'users/list' %>
+<%= javascript_include_tag 'form' %>
+<%- @hide_create_star = true -%>
+
+<% form_for (@team, :html => {:class => 'sheer round clearfix'}) do |f| %>
+  <%= f.error_messages %>
+  <h2>New Team</h2>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <ul class="clearfix">
+  <% current_user.others.sort_by(&:name).each do |other| %>
+    <li class="user sheer round">
+      <%= f.label "to_id_#{other.id}",
+        render(:partial => '/shared/photo_with_name',
+               :locals => {:user => other, :size => :square}) %>
+      <%= check_box_tag "team[user_ids][]", "#{other.id}", @team.user_ids.include?(other.id), :id => "team_user_ids_" + other.id.to_s %>
+    </li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

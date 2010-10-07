@@ -38,6 +38,19 @@ ul, ol {
   list-style: none;
 }
 
+table th {
+  text-align: left;
+}
+
+table td {
+  padding: 3px;
+  padding-right: 20px;
+}
+
+label {
+  cursor: pointer;
+}
+
 #header {
   margin: 40px 0 20px;
 }

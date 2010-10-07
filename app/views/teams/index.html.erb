@@ -1,0 +1,38 @@
+<% stylesheet 'teams' %>
+<% stylesheet 'stars' %>
+<%= javascript_include_tag 'form' %>
+<%- @hide_create_star = true -%>
+
+
+<%= create_a_team_button %>
+<% ['active','inactive'].each do |status| %>
+
+  <% if t = @teams[status.to_sym] %>
+    <div class="sheer round">
+      <h2><%= status.capitalize %> Teams</h2>
+      <table id="teams">
+
+        <% t.each do |team| %>
+          <tr>
+            <td>
+              <%= link_to team.name, team_path(team) %>
+              <div class="photos sheer round">
+                <% team.users.sort_by(&:name).each do |user| %>
+                  <%= label_tag "to_id_#{user.id}",
+                  render(:partial => '/shared/photo_with_name',
+                      :locals => {:user => user, :size => :square}) %>
+                <% end %>
+              </div>
+            </td>
+            <td>
+              <%= link_to "Edit", edit_team_path(team) %>
+            </td>
+          </tr>
+        <% end %>
+
+      </table>
+    </div>
+    <br>
+  <% end %>
+
+<% end %>

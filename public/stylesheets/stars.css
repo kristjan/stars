@@ -203,3 +203,8 @@ h2 {
   height: .5em;
   width: .5em;
 }
+
+#teams .photo {
+  display: inline-block;
+  margin: 0 5px;
+}

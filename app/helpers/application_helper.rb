@@ -3,6 +3,10 @@ module ApplicationHelper
     link_to "&#9733; " + text, new_star_url, :class => 'button'
   end
 
+  def create_a_team_button(text="Make a new team")
+    link_to "&#9733; " + text, new_team_url, :class => 'button'
+  end
+
   def second_button(star, text="Second!")
     if current_user.can_second?(star)
       link_to "&#9732; " + text, star_seconds_url(star),
@@ -37,11 +41,20 @@ module ApplicationHelper
 
   DEFAULT_PHOTO_OPTIONS = {:linked => false,
                            :size => :square}
-  def photo(user, opts={})
-    link_to(
-      fb_profile_pic(user.facebook_uid, DEFAULT_PHOTO_OPTIONS.merge(opts)),
-      user_path(user)
-    )
+  def photo(subject, opts={})
+    if subject.instance_of?(User)
+      link_to(
+        fb_profile_pic(subject.facebook_uid, DEFAULT_PHOTO_OPTIONS.merge(opts)),
+        user_path(subject)
+      )
+    else
+      if (opts[:size] == :square)
+        height = width = 50
+      end
+      link_to(
+        image_tag(subject.image, :height => height, :width => height), team_path(subject)
+      )
+    end
   end
 
   def linked_photo(user, opts={})

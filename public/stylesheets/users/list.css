@@ -44,6 +44,11 @@ form ul.clearfix li.selected {
   margin: 8px;
 }
 
+form ul.clearfix li.teamSelected {
+  background-color: rgba(225,255,225,.5);
+  border: 2px solid #9F9;
+  margin: 8px;
+}
 form ul.clearfix li .handwritten {
   display: inline-block;
   max-width: 85px;

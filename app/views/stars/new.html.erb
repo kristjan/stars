@@ -1,5 +1,5 @@
-<% stylesheet 'stars/new' %>
-<%= javascript_include_tag 'stars/new' %>
+<% stylesheet 'users/list' %>
+<%= javascript_include_tag 'users/list' %>
 <%= javascript_include_tag 'form' %>
 <%- @hide_create_star = true -%>
 
@@ -8,15 +8,40 @@
 
   <h2>Award a star to:</h2>
   <ul class="clearfix">
-  <% current_user.others.sort_by(&:name).each do |other| %>
-    <li class="sheer round">
-      <%= f.label "to_id_#{other.id}",
-        render(:partial => '/shared/photo_with_name',
-               :locals => {:user => other, :size => :square}) %>
-      <%= check_box_tag "star[to_ids][]", "#{other.id}", @star.to_ids.include?(other.id) %>
+
+  <% Team.all.group_by(&:active?)[true].sort_by(&:name).each do |team| %>
+
+    <li class="team sheer round" id="team<%= team.id %>">
+
+      <%= render(:partial => '/shared/photo_with_name',
+                 :locals => {:user => team, :size => :square})
+      %>
+      <%= check_box_tag "team[users][]", team.user_ids.join(',') %>
+
     </li>
   <% end %>
   </ul>
+
+
+  <ul class="clearfix">
+
+  <% current_user.others.sort_by(&:name).each do |u| %>
+    <li class="user sheer round">
+
+      <%= render(:partial => '/shared/photo_with_name',
+                 :locals => {:user => u, :size => :square})
+      %>
+      <%= check_box_tag "star[to_ids][]", u.id,
+            @star.to_ids.include?(u.id),
+            :id => "star_to_ids_#{u.id}"
+      %>
+
+    </li>
+  <% end %>
+
+  </ul>
+
+
   <h2>What for?</h2>
   <%= f.text_area :reason, :maxlength => 1024 %>
   <span class="chars_left">
