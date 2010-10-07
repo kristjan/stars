@@ -1,15 +1,15 @@
-<table>
-  <tr>
-    <% %w[Name Email Active? Actions].each do |column| %>
-      <th><%= column %></th>
-    <% end %>
-  </tr>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= mail_to nil, user.email %></td>
-      <td><%= user.active? %></td>
-      <td><%= link_to "Edit", edit_user_path(user) %></td>
-    </tr>
-  <% end %>
-</table>
+<% [true, false].each do |state| %>
+  <div class="sheer round">
+    <p><%= state ? 'Active' : 'Inactive' %> Users</p>
+    <table>
+      <% @users.group_by(&:active?)[state].each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= mail_to nil, user.email %></td>
+          <td><%= link_to "Edit", edit_user_path(user) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<br>
+<% end %>

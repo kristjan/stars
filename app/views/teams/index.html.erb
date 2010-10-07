@@ -5,11 +5,12 @@
 
 
 <%= create_a_team_button %>
-<% ['active','inactive'].each do |status| %>
 
-  <% if t = @teams[status.to_sym] %>
+<% [true, false].each do |status| %>
+
+  <% if t = @teams.group_by(&:active)[status]  %>
     <div class="sheer round">
-      <h2><%= status.capitalize %> Teams</h2>
+      <h2><%= status ? 'Active' : 'Inactive' %> Teams</h2>
       <table id="teams">
 
         <% t.each do |team| %>

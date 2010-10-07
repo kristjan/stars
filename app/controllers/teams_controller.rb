@@ -1,9 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-    @teams ||= {}
-    @teams[:active]   = Team.all.group_by(&:active?)[true]
-    @teams[:inactive] = Team.all.group_by(&:active?)[false]
+    @teams = Team.all
   end
 
   def new
