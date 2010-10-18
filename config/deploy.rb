@@ -1,5 +1,5 @@
 set :application, "stars"
-set :git_user, "emersonrp"
+set :git_user, `git config github.user`.strip
 set :repository,  "git://github.com/#{git_user}/#{application}.git"
 set :user, :deploy
 
