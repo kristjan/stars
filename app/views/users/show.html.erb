@@ -15,7 +15,7 @@
 <div id="make_a_star">
   <h2>Make <%= @user.name %> a star</h2>
   <% form_for(@star, :html => {:class => 'sheer round clearfix'}) do |f| %>
-    <%= hidden_field_tag 'star[to_ids][]', @user.id %>
+    <%= f.hidden_field :to_ids %>
     <p>
       <%= f.text_area :reason, :maxlength => 1024 %>
       <span class="chars_left"></span>
