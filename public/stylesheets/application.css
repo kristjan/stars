@@ -183,9 +183,9 @@ label {
 }
 
 .round {
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 .sheer {
@@ -209,7 +209,7 @@ label {
 }
 
 .lone_message {
-  margin: 250px auto;
+  margin: 150px auto;
   text-align: center;
   width: 400px;
 }

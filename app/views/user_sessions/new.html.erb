@@ -1,6 +1,7 @@
+<% stylesheet 'user_sessions' %>
 <%- @hide_create_star = true %>
-<div class="lone_message sheer round" %>
-  Star light, star bright...
+<div class="lone_message sheer round clearfix" %>
+  <h2>Star light, star bright&hellip;</h2>
   <%- form_for @user_session do |f| -%>
     <p>
       <%= f.label :email %>
@@ -10,6 +11,10 @@
       <%= f.label :password %>
       <%= f.password_field :password %>
     </p>
-    <%= f.submit "Log in" %>
+    <p class="remember">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    <p>
+    <%= f.submit "Log in", :class => "button" %>
   <%- end -%>
 </div>

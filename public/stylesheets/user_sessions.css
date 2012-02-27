@@ -1,0 +1,41 @@
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+  color: rgba(255,255,255,.6);
+}
+
+.new_user_session {
+  margin: 20px 0;
+  text-align: left;
+}
+.new_user_session p {
+  margin: 10px 0;
+}
+
+.new_user_session label {
+  display: inline-block;
+  width: 110px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.new_user_session .remember {
+  margin-left: 100px;
+}
+.new_user_session .remember label {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.new_user_session input[type=text],
+.new_user_session input[type=password] {
+  padding: 5px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.new_user_session input[type=submit] {
+  float: right;
+}
