@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :require_one_user
   before_filter :require_login
   before_filter :add_stylesheets
 
@@ -23,8 +24,17 @@ private
   end
 
   def require_login
+    return if no_users?
     cookies[:redirect] = request.path
     redirect_to login_path unless current_user
+  end
+
+  def require_one_user
+    redirect_to new_user_url if no_users?
+  end
+
+  def no_users?
+    User.maximum(:id).nil?
   end
 
   def add_stylesheets
