@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def others
-    User.active.all(:conditions => ["`users`.`id` != ?", self.id])
+    User.active.all - [self]
   end
 
   def second(star)
