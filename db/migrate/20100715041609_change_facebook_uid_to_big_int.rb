@@ -1,17 +1,9 @@
 class ChangeFacebookUidToBigInt < ActiveRecord::Migration
   def self.up
-    execute(<<-SQL)
-      ALTER TABLE users
-      CHANGE COLUMN facebook_uid
-      facebook_uid BIGINT UNSIGNED
-    SQL
+    change_column :users, :facebook_uid, :integer, :limit => 8
   end
 
   def self.down
-    execute(<<-SQL)
-      ALTER TABLE users
-      CHANGE COLUMN facebook_uid
-      facebook_uid INTEGER
-    SQL
+    change_column :users, :facebook_uid, :integer
   end
 end
