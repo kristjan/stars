@@ -6,6 +6,5 @@ tmp/*
 .DS_Store
 config/database.yml
 config/facebooker.yml
-config/initializers/mail.rb
 config/initializers/hoptoad.rb
 db/schema.rb
