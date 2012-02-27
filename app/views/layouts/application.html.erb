@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>Stars!</title>
@@ -12,11 +12,8 @@
     <%= javascript_include_tag :jquery %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'jquery.scrolling-parallax' %>
-    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
   </head>
   <body class="clearfix">
-    <%= fb_connect_javascript_tag %>
-    <%= init_fb_connect "XFBML", :js => :jquery %>
     <div id="container">
       <% if flash[:notice] %>
         <div id="flash"><%= flash[:notice] %></div>

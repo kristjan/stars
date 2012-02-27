@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  filter_parameter_logging :fb_sig_friends
-
   before_filter :require_login
   before_filter :add_stylesheets
 

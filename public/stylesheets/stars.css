@@ -87,7 +87,7 @@ h2 {
   vertical-align: middle;
 }
 
-.star .photo .FB_profile_pic {
+.star .photo img {
   margin-bottom: 10px;
 }
 
@@ -126,7 +126,7 @@ h2 {
   width: 253px;
 }
 
-.superstars .FB_profile_pic {
+.superstars img {
   display: inline-block;
   margin-right: 5px;
   vertical-align: top;
@@ -173,7 +173,7 @@ h2 {
   text-align: right;
 }
 
-.superstars .stars li .tooltip .details .FB_profile_pic {
+.superstars .stars li .tooltip .details img {
   display: inline-block;
   height: 30px;
   margin: 2px;

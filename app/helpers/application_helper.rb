@@ -39,26 +39,12 @@ module ApplicationHelper
     link_to name(user, opts), user_path(user)
   end
 
-  DEFAULT_PHOTO_OPTIONS = {:linked => false,
-                           :size => :square}
-  def photo(subject, opts={})
-    if subject.instance_of?(User)
-      link_to(
-        fb_profile_pic(subject.facebook_uid, DEFAULT_PHOTO_OPTIONS.merge(opts)),
-        user_path(subject)
-      )
-    else
-      if (opts[:size] == :square)
-        height = width = 50
-      end
-      link_to(
-        image_tag(subject.image, :height => height, :width => height), team_path(subject)
-      )
-    end
-  end
-
-  def linked_photo(user, opts={})
-    link_to photo(user, opts), user_path(user)
+  PHOTO_SIZE = 50
+  def photo(subject)
+    type = subject.class.name.downcase
+    link_to(image_tag("#{type}.png",
+                       :height => PHOTO_SIZE, :width => PHOTO_SIZE),
+            send("#{type}_path", subject))
   end
 
   def stylesheet(path)

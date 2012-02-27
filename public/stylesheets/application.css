@@ -231,11 +231,6 @@ label {
   height: 0;
 }
 
-.fbconnect_login_button {
-  display: block;
-  margin: 10px 5px;
-}
-
 .clearfix {
   display: inline-block;
 }

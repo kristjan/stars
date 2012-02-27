@@ -5,7 +5,7 @@
       <%= star.reason %><br />
       <div class="signature">
         <span class="handwritten"><%= star.from.name %></span>
-        <%= photo(star.from, :size => :square) %>
+        <%= photo(star.from) %>
       </div>
       <% if star.num_seconds > 0 %>
         <div class="seconds clearfix">
@@ -14,7 +14,7 @@
             <% star.seconds.in_groups_of(4, false).each do |group| %>
               <p>
                 <% group.each do |second| %>
-                  <%= photo(second.user, :size => :square) %>
+                  <%= photo(second.user) %>
                 <% end %>
               </p>
             <% end %>
