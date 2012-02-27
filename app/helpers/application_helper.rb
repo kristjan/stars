@@ -31,6 +31,14 @@ module ApplicationHelper
     DEFAULT_NAME_OPTIONS.merge(:ifcantsee => user.name.split.first)
   end
 
+  GRAVATAR_BASE = "http://gravatar.com/avatar/"
+  def gravatar_url(email)
+    url = URI.parse(GRAVATAR_BASE)
+    url.path += Digest::MD5.hexdigest(email.strip.downcase)
+    url.query = "d=#{URI.encode("http://#{ENV['APP_HOST']}#{image_path('user.png')}")}"
+    url.to_s
+  end
+
   def name(user, opts={})
     user.name
   end
@@ -42,8 +50,13 @@ module ApplicationHelper
   PHOTO_SIZE = 50
   def photo(subject)
     type = subject.class.name.downcase
-    link_to(image_tag("#{type}.png",
-                       :height => PHOTO_SIZE, :width => PHOTO_SIZE),
+    image_url = case type
+    when 'user'
+      gravatar_url(subject.email)
+    else
+      "#{type}.png"
+    end
+    link_to(image_tag(image_url, :height => PHOTO_SIZE, :width => PHOTO_SIZE),
             send("#{type}_path", subject))
   end
 
