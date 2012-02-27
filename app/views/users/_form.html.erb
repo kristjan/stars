@@ -1,0 +1,28 @@
+<% form_for @user do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <%- unless @user.new_record? -%>
+    <p>
+      <%= f.label :active %>
+      <%= f.check_box :active %>
+    </p>
+  <%- end -%>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
