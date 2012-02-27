@@ -1,10 +1,12 @@
 ActionMailer::Base.default_content_type = 'text/html'
 
 class Mailer < ActionMailer::Base
+  FROM = "Starbuck <noreply@#{ENV['APP_HOST']}>"
+
   def star(star)
     subject "#{star.to_sentence} got a star!"
     recipients EVERYONE
-    from 'Starbuck'
+    from FROM
     body :star => star
   end
 
@@ -16,7 +18,7 @@ class Mailer < ActionMailer::Base
 
     subject "Superstars - #{Date.today.beginning_of_week.strftime('%B %d, %Y')}"
     recipients EVERYONE
-    from 'Starbuck'
+    from FROM
 
     body :superstars => Superstar.last_week,
          :num_stars => num_stars, :num_tos => num_tos,
