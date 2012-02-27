@@ -1,0 +1,9 @@
+<table>
+  <% users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= mail_to user.email, user.email %></td>
+      <td><%= link_to "Edit", edit_user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>
