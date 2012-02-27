@@ -4,7 +4,7 @@ class Mailer < ActionMailer::Base
   def star(star)
     subject "#{star.to_sentence} got a star!"
     recipients EVERYONE
-    from 'Stars'
+    from 'Starbuck'
     body :star => star
   end
 
@@ -16,7 +16,7 @@ class Mailer < ActionMailer::Base
 
     subject "Superstars - #{Date.today.beginning_of_week.strftime('%B %d, %Y')}"
     recipients EVERYONE
-    from 'The King of All Causemos'
+    from 'Starbuck'
 
     body :superstars => Superstar.last_week,
          :num_stars => num_stars, :num_tos => num_tos,
